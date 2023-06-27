@@ -23,11 +23,14 @@ const rangos = ref();
 </script>
 
 <template>
-  <div id="rangos" class="grid grid-cols-3 gap-4 my-10 mb-20">
+  <div
+    id="rangos"
+    class="grid md:grid-cols-3 place-content-center gap-4 my-10 mb-20"
+  >
     <div
       v-for="n of imagenes_rangos"
       :key="n"
-      class="backdrop-blur rounded-md bg-slate-700 bg-opacity-30 p-5 flex flex-col items-center gap-4 hover:scale-105 transition-all"
+      class="backdrop-blur rounded-md max-w-md bg-slate-700 bg-opacity-30 p-5 flex flex-col items-center gap-4 hover:scale-105 transition-all"
     >
       <img :src="n.imagen" alt="" class="h-28" />
       <h4 class="text-2xl">{{ n.name }}</h4>
