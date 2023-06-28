@@ -20,7 +20,7 @@ import TrinityImg from "../assets/logo.png";
       class="px-2 max-w-screen-lg mx-auto w-full h-full flex justify-between items-center"
     >
       <RouterLink class="text-xl font-bold flex items-center" to="/"
-        ><img :src="TrinityImg" class="h-10 rounded-md" alt="" />
+        ><img :src="TrinityImg" class="h-12 rounded-md" alt="" />
         <!-- TRINITY<span class="text-yellow-500">MC</span> -->
       </RouterLink>
 
