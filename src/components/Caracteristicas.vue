@@ -71,7 +71,7 @@ const copyIp = () => {
         </li>
       </ul>
     </div>
-    <div>
+    <div class="flex items-center">
       <!-- <span
         class="pl-2 py-2 inline-block bg-slate-600 backdrop-blur bg-opacity-30 rounded-s-sm"
         >ip:</span
@@ -86,7 +86,7 @@ const copyIp = () => {
         @click="copyIp"
         class="px-3 py-2 bg-red-700 hover:bg-red-600 transition-colors rounded-e-sm"
       >
-        Copiar
+        <span class="material-symbols-outlined text-sm"> content_copy </span>
       </button>
     </div>
   </div>
