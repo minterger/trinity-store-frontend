@@ -23,7 +23,7 @@ const toggleMenu = () => {
     </div>
   </div>
   <nav
-    class="w-full h-16 border-t border-b bg-slate-600 bg-opacity-30 border-slate-700 relative z-50 md:backdrop-blur"
+    class="w-full h-16 border-t border-b bg-slate-600 bg-opacity-30 border-slate-700 relative z-50 backdrop-blur"
   >
     <div
       class="px-2 max-w-screen-lg mx-auto w-full h-full flex justify-between items-center"
