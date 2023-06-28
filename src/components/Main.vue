@@ -12,7 +12,7 @@ async function buscarUUID(nombreJugador) {
 
     const id = data.data.player.raw_id;
 
-    imagen.value = `https://crafatar.com/renders/body/${id}`;
+    imagen.value = `https://crafatar.com/renders/body/${id}?size=4&default=MHF_Steve&overlay`;
 
     if (response.ok) {
       console.log(imagen.value);
@@ -22,11 +22,11 @@ async function buscarUUID(nombreJugador) {
   } catch (error) {
     console.error("Error al buscar el UUID del jugador:", error);
     imagen.value =
-      "https://crafatar.com/renders/body/069a79f444e94726a5befca90e38aaf5";
+      "https://crafatar.com/renders/body/6d17262c9e44477ca0f7215862f33451?size=4&default=MHF_Steve&overlay";
   }
 }
 
-buscarUUID("Notch");
+buscarUUID("");
 </script>
 
 <template>
@@ -42,6 +42,10 @@ buscarUUID("Notch");
         para que te diviertas
       </p>
     </div>
-    <img :src="imagen" class="w-44 m-20 hidden md:block" alt="" />
+    <img
+      :src="imagen"
+      class="w-44 m-20 hidden md:block drop-shadow-2xl"
+      alt=""
+    />
   </div>
 </template>
