@@ -79,7 +79,7 @@ const copyIp = () => {
       <input
         type="text"
         :value="ip"
-        class="p-2 bg-slate-600 backdrop-blur bg-opacity-30 border-none"
+        class="p-2 bg-slate-600 backdrop-blur bg-opacity-30 border-none rounded-s-sm"
         disabled
       />
       <button
