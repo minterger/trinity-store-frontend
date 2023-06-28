@@ -42,6 +42,6 @@ buscarUUID("Notch");
         para que te diviertas
       </p>
     </div>
-    <img :src="imagen" class="w-52 m-20 hidden md:block" alt="" />
+    <img :src="imagen" class="w-44 m-20 hidden md:block" alt="" />
   </div>
 </template>
