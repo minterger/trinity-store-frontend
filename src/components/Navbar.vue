@@ -36,7 +36,7 @@ const toggleMenu = () => {
       <!-- menu desktop -->
       <ul class="hidden md:flex gap-4">
         <li>
-          <RouterLink to="" class="hover:underline transition-colors p-1"
+          <RouterLink to="/" class="hover:underline transition-colors p-1"
             >Inicio</RouterLink
           >
         </li>
