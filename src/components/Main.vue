@@ -31,7 +31,7 @@ buscarUUID("");
 
 <template>
   <div
-    class="flex justify-center md:justify-between items-center my-8 h-96 md:h-auto"
+    class="flex justify-center md:justify-between relative items-center mb-44 mt-8 md:my-8 h-96 md:h-auto"
   >
     <div class="flex flex-col items-center">
       <h2 class="max-w-xl text-5xl text-center font-bold uppercase">
@@ -44,7 +44,7 @@ buscarUUID("");
     </div>
     <img
       :src="imagen"
-      class="w-44 m-20 hidden md:block drop-shadow-2xl"
+      class="w-44 m-20 absolute md:static top-72 sm:top-64 block drop-shadow-2xl"
       alt=""
     />
   </div>
