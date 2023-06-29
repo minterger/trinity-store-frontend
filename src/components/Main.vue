@@ -22,7 +22,7 @@ async function buscarUUID(nombreJugador) {
   } catch (error) {
     console.error("Error al buscar el UUID del jugador:", error);
     imagen.value =
-      "https://crafatar.com/renders/body/6d17262c9e44477ca0f7215862f33451?size=4&default=MHF_Steve&overlay";
+      "https://crafatar.com/renders/body/35e1b689be7a45cb9109671ea3901f43?size=4&default=MHF_Steve&overlay";
   }
 }
 
