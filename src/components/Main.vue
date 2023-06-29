@@ -44,7 +44,7 @@ buscarUUID("");
     </div>
     <img
       :src="imagen"
-      class="w-44 m-20 absolute md:static top-72 sm:top-64 block drop-shadow-2xl"
+      class="h-96 m-20 absolute md:static top-72 sm:top-64 block drop-shadow-2xl"
       alt=""
     />
   </div>
