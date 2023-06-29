@@ -6,7 +6,7 @@ import DisordButton from "./components/DisordButton.vue";
 </script>
 
 <template>
-  <div class="min-h-screen relative pb-10">
+  <div class="min-h-screen relative pb-10 overflow-hidden">
     <Navbar />
     <router-view v-slot="{ Component, route }">
       <transition name="slide-fade">
@@ -19,28 +19,39 @@ import DisordButton from "./components/DisordButton.vue";
 </template>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  visibility: hidden;
-}
-
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   transform: translateX(20px);
   opacity: 0;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 </style>
