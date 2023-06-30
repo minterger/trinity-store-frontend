@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
+const isCopied = ref(false);
 const ip = ref("trinitymc.com.ar");
 
 const copyIp = () => {
@@ -26,12 +27,10 @@ const copyIp = () => {
   // Elimina el elemento temporal
   document.body.removeChild(elementoTemporal);
 
-  const tempIp = ip.value;
-
-  ip.value = "Copiada!";
+  isCopied.value = true;
 
   setTimeout(() => {
-    ip.value = tempIp;
+    isCopied.value = false;
   }, 2000);
 };
 </script>
@@ -78,7 +77,7 @@ const copyIp = () => {
       > -->
       <input
         type="text"
-        :value="ip"
+        :value="[isCopied ? 'Copiada!' : ip]"
         class="p-2 bg-slate-600 backdrop-blur bg-opacity-30 border-none rounded-s-sm"
         disabled
       />
