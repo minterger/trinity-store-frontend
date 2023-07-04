@@ -37,7 +37,7 @@ const copyIp = () => {
 
 <template>
   <div
-    class="bg-slate-700 bg-opacity-30 backdrop-blur p-5 w-full mb-20 pt-10 flex flex-col gap-10"
+    class="bg-slate-700 bg-opacity-30 backdrop-blur rounded-md p-5 w-full mb-20 pt-10 flex flex-col gap-10"
   >
     <h3 class="text-3xl">
       Caracteristicas que le dan valor a nuestro servidor
