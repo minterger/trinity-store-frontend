@@ -1,21 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useAuthStore } from "../stores/authStore";
 
 const authStore = useAuthStore();
 
-const imagen = ref();
+const imagen = ref("");
 
-const traerSkin = () => {
+watch(authStore.user.uuid, () => {
   if (!!authStore.user.uuid) {
     imagen.value = `https://crafatar.com/renders/body/${authStore.user.uuid}?size=4&default=MHF_Steve&overlay`;
   } else {
     imagen.value =
       "https://crafatar.com/renders/body/35e1b689be7a45cb9109671ea3901f43?size=4&default=MHF_Steve&overlay";
   }
-};
-
-traerSkin();
+});
 </script>
 
 <template>
