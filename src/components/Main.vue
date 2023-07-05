@@ -1,32 +1,21 @@
 <script setup>
 import { ref } from "vue";
+import { useAuthStore } from "../stores/authStore";
+
+const authStore = useAuthStore();
 
 const imagen = ref();
 
-async function buscarUUID(nombreJugador) {
-  try {
-    const response = await fetch(
-      `https://playerdb.co/api/player/minecraft/${nombreJugador}`
-    );
-    const data = await response.json();
-
-    const id = data.data.player.raw_id;
-
-    imagen.value = `https://crafatar.com/renders/body/${id}?size=4&default=MHF_Steve&overlay`;
-
-    if (response.ok) {
-      console.log(imagen.value);
-    } else {
-      console.log("No se encontró el jugador");
-    }
-  } catch (error) {
-    console.error("Error al buscar el UUID del jugador:", error);
+const traerSkin = () => {
+  if (!!authStore.user.uuid) {
+    imagen.value = `https://crafatar.com/renders/body/${authStore.user.uuid}?size=4&default=MHF_Steve&overlay`;
+  } else {
     imagen.value =
       "https://crafatar.com/renders/body/35e1b689be7a45cb9109671ea3901f43?size=4&default=MHF_Steve&overlay";
   }
-}
+};
 
-buscarUUID("");
+traerSkin();
 </script>
 
 <template>

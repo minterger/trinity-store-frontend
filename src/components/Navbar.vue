@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from "vue";
 import TrinityImg from "../assets/logo.png";
+import { useAuthStore } from "../stores/authStore";
+
+const authStore = useAuthStore();
 
 const menuShow = ref(false);
 
@@ -34,7 +37,7 @@ const toggleMenu = () => {
       </RouterLink>
 
       <!-- menu desktop -->
-      <ul class="hidden md:flex gap-4">
+      <ul class="hidden md:flex items-center gap-4">
         <li>
           <RouterLink to="/" class="hover:underline transition-colors p-1"
             >Inicio</RouterLink
@@ -47,18 +50,37 @@ const toggleMenu = () => {
             >Rangos</RouterLink
           >
         </li>
-        <li>
-          <RouterLink to="/register" class="bg-slate-600 px-3 py-2 rounded-sm"
-            >Registrarse</RouterLink
-          >
-        </li>
-        <li>
-          <RouterLink
-            to="/login"
-            class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
-            >Entrar</RouterLink
-          >
-        </li>
+        <template v-if="!authStore.user.token">
+          <li>
+            <RouterLink to="/register" class="bg-slate-600 px-3 py-2 rounded-sm"
+              >Registrarse</RouterLink
+            >
+          </li>
+          <li>
+            <RouterLink
+              to="/login"
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
+              >Entrar</RouterLink
+            >
+          </li>
+        </template>
+        <template v-else>
+          <li>
+            <RouterLink
+              to="/dashboard"
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
+              >Panel</RouterLink
+            >
+          </li>
+          <li>
+            <button
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
+              @click="authStore.closeSession"
+            >
+              Cerrar Sesion
+            </button>
+          </li>
+        </template>
       </ul>
 
       <button class="mr-3 inline md:hidden" @click="toggleMenu">
@@ -86,20 +108,39 @@ const toggleMenu = () => {
             >Rangos</RouterLink
           >
         </li>
-        <li>
-          <RouterLink
-            to="/register"
-            class="bg-slate-600 px-3 py-2 rounded-sm block"
-            >Registrarse</RouterLink
-          >
-        </li>
-        <li>
-          <RouterLink
-            to="/login"
-            class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm block"
-            >Entrar</RouterLink
-          >
-        </li>
+        <template v-if="!authStore.user.token">
+          <li>
+            <RouterLink
+              to="/register"
+              class="bg-slate-600 px-3 py-2 rounded-sm block"
+              >Registrarse</RouterLink
+            >
+          </li>
+          <li>
+            <RouterLink
+              to="/login"
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm block"
+              >Entrar</RouterLink
+            >
+          </li>
+        </template>
+        <template v-else>
+          <li>
+            <RouterLink
+              to="/dashboard"
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm block"
+              >Panel</RouterLink
+            >
+          </li>
+          <li>
+            <button
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm w-full text-left"
+              @click="authStore.closeSession"
+            >
+              Cerrar Sesion
+            </button>
+          </li>
+        </template>
       </ul>
     </div>
   </nav>
