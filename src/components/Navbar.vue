@@ -37,7 +37,7 @@ const toggleMenu = () => {
       </RouterLink>
 
       <!-- menu desktop -->
-      <ul class="hidden md:flex items-center gap-4">
+      <ul class="hidden md:flex gap-4">
         <li>
           <RouterLink to="/" class="hover:underline transition-colors p-1"
             >Inicio</RouterLink
@@ -73,12 +73,12 @@ const toggleMenu = () => {
             >
           </li>
           <li>
-            <button
-              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
+            <a
               @click="authStore.closeSession"
+              class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm cursor-pointer"
             >
               Cerrar Sesion
-            </button>
+            </a>
           </li>
         </template>
       </ul>
