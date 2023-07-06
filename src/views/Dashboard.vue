@@ -4,7 +4,9 @@ import { useAuthStore } from "../stores/authStore";
 const authStore = useAuthStore();
 
 const avatarUrl = computed(() => {
-  return "https://www.gravatar.com/avatar/" + authStore.user.avatar + "?d=mp";
+  return (
+    "https://www.gravatar.com/avatar/" + authStore.user.avatar + "?d=mp&s=130"
+  );
 });
 
 const menuDash = ref(false);

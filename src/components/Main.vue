@@ -10,7 +10,7 @@ const imagen = ref("");
 
 const traerImg = () => {
   if (!!authStore.user.uuid) {
-    imagen.value = `https://crafatar.com/renders/body/${authStore.user.uuid}?size=4&default=MHF_Steve&overlay`;
+    imagen.value = `https://crafatar.com/renders/body/${authStore.user.uuid}?scale=10&default=MHF_Steve&overlay`;
   } else {
     imagen.value = stevepng;
   }
