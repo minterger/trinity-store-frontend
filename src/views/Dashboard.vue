@@ -15,12 +15,14 @@ const toggleMenuDash = () => {
 </script>
 
 <template>
-  <div class="max-w-screen-lg px-2 mx-auto flex md:gap-4">
+  <div class="max-w-screen-lg px-2 mx-auto flex md:gap-4 relative">
     <nav
-      class="overflow-hidden md:max-w-xs md:w-full md:mr-0 rounded-md my-4 min-h-screen bg-slate-700 bg-opacity-30 transition-all md:transition-none ease-in"
-      :class="[menuDash ? 'mr-3 w-full' : 'mr-0 w-0']"
+      class="absolute md:static md:max-w-xs md:w-full md:mr-0 rounded-md my-4 min-h-screen backdrop-blur md:backdrop-blur-none bg-slate-700 bg-opacity-30 transition-all md:transition-none ease-in z-10"
+      :class="[menuDash ? ' w-2/3' : 'w-0 ']"
     >
-      <div class="flex my-4 items-center justify-center gap-2 md:gap-4">
+      <div
+        class="flex my-4 items-center overflow-hidden justify-center gap-2 md:gap-4"
+      >
         <img
           :src="avatarUrl"
           class="rounded-full h-14 w-14 md:h-24 md:w-24"
@@ -31,7 +33,7 @@ const toggleMenuDash = () => {
           authStore.user.username
         }}</span>
       </div>
-      <ul>
+      <ul class="overflow-hidden">
         <li
           class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
         >
@@ -53,14 +55,10 @@ const toggleMenuDash = () => {
           Configuración
         </li>
       </ul>
-    </nav>
-    <aside
-      class="w-full rounded-md my-4 min-h-screen bg-slate-700 bg-opacity-30 relative"
-    >
       <!-- boton panel lateral en el dashboard -->
       <button
         @click="toggleMenuDash"
-        class="m-2 top-0 md:hidden left-0 rounded-full h-10 w-10 grid place-content-center bg-slate-600 absolute"
+        class="m-2 top-0 -right-14 md:hidden rounded-full h-10 w-10 grid place-content-center bg-slate-600 absolute"
       >
         <Transition>
           <span v-if="!menuDash" class="material-symbols-outlined text-3xl">
@@ -69,12 +67,15 @@ const toggleMenuDash = () => {
           <span v-else class="material-symbols-outlined text-3xl"> close </span>
         </Transition>
       </button>
-
+    </nav>
+    <aside
+      class="w-full rounded-md my-4 min-h-screen bg-slate-700 bg-opacity-30 relative"
+    >
       <!-- contenido -->
       <h3
         class="text-center text-xl font-bold py-4 b border-b border-slate-700"
       >
-        Cuenta
+        Perfil
       </h3>
     </aside>
   </div>
