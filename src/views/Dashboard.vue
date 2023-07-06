@@ -18,7 +18,7 @@ const toggleMenuDash = () => {
   <div class="max-w-screen-lg px-2 mx-auto flex md:gap-4 relative">
     <nav
       class="absolute md:static md:max-w-xs md:w-full md:mr-0 rounded-md my-4 min-h-screen backdrop-blur md:backdrop-blur-none bg-slate-700 bg-opacity-30 transition-all md:transition-none ease-in z-10"
-      :class="[menuDash ? ' w-2/3 sm:w-1/3' : 'w-0 ']"
+      :class="[menuDash ? ' w-2/3 sm:w-1/2' : 'w-0 ']"
     >
       <div
         class="flex my-4 items-center overflow-hidden justify-center gap-2 md:gap-4"
