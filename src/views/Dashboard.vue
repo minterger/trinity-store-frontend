@@ -21,7 +21,7 @@ const toggleMenuDash = () => {
       :class="[menuDash ? 'mr-3 w-full' : 'mr-0 w-0 overflow-hidden']"
     >
       <div class="flex my-4 items-center justify-center gap-4">
-        <img :src="avatarUrl" class="rounded-full h-24" alt="" />
+        <img :src="avatarUrl" class="rounded-full h-24 w-24" alt="" />
 
         <span class="block text-lg font-bold text-center">{{
           authStore.user.username
