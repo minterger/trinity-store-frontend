@@ -2,6 +2,8 @@
 import { ref, watch } from "vue";
 import { useAuthStore } from "../stores/authStore";
 
+import stevepng from "../assets/steve.png";
+
 const authStore = useAuthStore();
 
 const imagen = ref("");
@@ -10,8 +12,7 @@ const traerImg = () => {
   if (!!authStore.user.uuid) {
     imagen.value = `https://crafatar.com/renders/body/${authStore.user.uuid}?size=4&default=MHF_Steve&overlay`;
   } else {
-    imagen.value =
-      "https://crafatar.com/renders/body/a0012be9cede48a38ae366c502192cb8?size=4&default=MHF_Steve&overlay";
+    imagen.value = stevepng;
   }
 };
 
