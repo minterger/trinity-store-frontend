@@ -63,7 +63,7 @@ const login = async () => {
           class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
         >
           <template v-if="authStore.loading">
-            <span class="material-symbols-outlined text-base">
+            <span class="material-symbols-outlined text-base animate-spin">
               cached
             </span></template
           >
