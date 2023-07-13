@@ -1,41 +1,13 @@
 <script setup>
-import { ref } from "vue";
+import { useItemStore } from "../stores/itemStore";
 
-const rangos = ref([
-  {
-    name: "Vip Redstone",
-    image:
-      "https://dunb17ur4ymx4.cloudfront.net/packages/images/f439bb9fbfdc920cc409185f7dd9ae03662dd114.png",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse labore repudiandae excepturi...",
-    list: [""],
-    price: 300,
-  },
-  {
-    name: "Vip Diamante",
-    image:
-      "https://dunb17ur4ymx4.cloudfront.net/packages/images/d0bf9a586189471109d60aa6cf93c449275e127e.png",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse labore repudiandae excepturi...",
-    list: [""],
-    price: 600,
-  },
-  {
-    name: "Vip Netherite",
-    image:
-      "https://dunb17ur4ymx4.cloudfront.net/packages/images/11dc5695831cfc2e944457fabfa477357bb44f5c.png",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse labore repudiandae excepturi...",
-    list: [""],
-    price: 900,
-  },
-]);
+const itemStore = useItemStore();
 </script>
 
 <template>
   <div id="rangos" class="grid md:grid-cols-3 place-content-center gap-4 pb-20">
     <div
-      v-for="n of rangos"
+      v-for="n of itemStore.items"
       :key="n"
       class="backdrop-blur rounded-md max-w-md bg-slate-700 bg-opacity-30 p-5 flex flex-col items-center gap-4 hover:scale-105 transition-all"
     >
@@ -49,6 +21,7 @@ const rangos = ref([
         <div class="flex items-center gap-4">
           <button
             class="bg-red-700 hover:bg-red-600 transition-colors px-3 py-2 rounded-sm"
+            @click="itemStore.openMoreShowInfo(n)"
           >
             Ver Mas
           </button>

@@ -82,25 +82,27 @@ export const useAuthStore = defineStore("auth", () => {
     if (!user.token) {
       getToken();
     }
-    try {
-      const res = await fetch(import.meta.env.VITE_API_URL + "/user", {
-        headers: {
-          authorization: user.token,
-        },
-      });
-      if (res.ok) {
-        const data = await res.json();
+    if (user.token) {
+      try {
+        const res = await fetch(import.meta.env.VITE_API_URL + "/user", {
+          headers: {
+            authorization: user.token,
+          },
+        });
+        if (res.ok) {
+          const data = await res.json();
 
-        user.admin = data.admin;
-        user.avatar = data.avatar;
-        user.email = data.email;
-        user.username = data.username;
-        user.uuid = data.uuid;
-      } else {
+          user.admin = data.admin;
+          user.avatar = data.avatar;
+          user.email = data.email;
+          user.username = data.username;
+          user.uuid = data.uuid;
+        } else {
+          closeSession();
+        }
+      } catch (error) {
         closeSession();
       }
-    } catch (error) {
-      closeSession();
     }
   };
 
