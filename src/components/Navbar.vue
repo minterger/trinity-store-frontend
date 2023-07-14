@@ -9,10 +9,7 @@ const authStore = useAuthStore();
 const menuShow = ref(false);
 const route = useRoute();
 
-watch(
-  () => route.path + route.hash,
-  () => (menuShow.value = false)
-);
+watch([() => route.path, () => route.hash], () => (menuShow.value = false));
 
 const toggleMenu = () => {
   menuShow.value = !menuShow.value;
