@@ -1,11 +1,18 @@
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import TrinityImg from "../assets/logo.png";
 import { useAuthStore } from "../stores/authStore";
+import { useRoute } from "vue-router";
 
 const authStore = useAuthStore();
 
 const menuShow = ref(false);
+const route = useRoute();
+
+watch(
+  () => route.path,
+  () => (menuShow.value = false)
+);
 
 const toggleMenu = () => {
   menuShow.value = !menuShow.value;

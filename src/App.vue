@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.vue";
 import Footer from "./components/Footer.vue";
 import DisordButton from "./components/DisordButton.vue";
 import { useAuthStore } from "./stores/authStore";
+import MoreInfoItem from "./components/MoreInfoItem.vue";
 
 const authStore = useAuthStore();
 
@@ -18,6 +19,8 @@ authStore.getUser();
         <component :is="Component" :key="route.path" />
       </transition>
     </router-view>
+
+    <MoreInfoItem />
     <Footer />
     <DisordButton class="fixed bottom-8 right-8" />
   </div>

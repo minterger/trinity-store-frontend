@@ -1,7 +1,17 @@
 <script setup>
+import { watch } from "vue";
 import { useItemStore } from "../stores/itemStore";
+import { useRoute } from "vue-router";
 
 const itemStore = useItemStore();
+const route = useRoute();
+
+watch(
+  () => route.path,
+  () => {
+    itemStore.moreInfoShow = false;
+  }
+);
 </script>
 
 <template>
