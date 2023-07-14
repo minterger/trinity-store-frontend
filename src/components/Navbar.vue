@@ -10,7 +10,7 @@ const menuShow = ref(false);
 const route = useRoute();
 
 watch(
-  () => route.path,
+  () => route.path + route.hash,
   () => (menuShow.value = false)
 );
 
