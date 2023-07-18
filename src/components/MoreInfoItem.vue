@@ -61,7 +61,7 @@ watch(
       </p>
       <div class="flex flex-col">
         <button
-          class="bg-emerald-800 hover:bg-emerald-700 transition-colors px-3 py-2 rounded-sm m-4"
+          class="bg-emerald-800 hover:bg-emerald-700 transition-colors px-3 py-2 rounded-sm m-4 whitespace-nowrap"
         >
           Añadir Al Carrito
         </button>
