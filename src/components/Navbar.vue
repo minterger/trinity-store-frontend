@@ -96,7 +96,7 @@ const toggleMenu = () => {
       <!-- menu mobile -->
       <ul
         :class="{ 'invisible opacity-0 translate-y-2': !menuShow }"
-        class="flex flex-col absolute md:hidden max-w-xs w-full top-16 right-0 p-4 bg-slate-700 bg-opacity-30 gap-5 rounded-b-md transition-all z-50 backdrop-blur"
+        class="flex flex-col absolute md:hidden max-w-xs w-full top-16 right-0 p-4 bg-slate-700 bg-opacity-30 gap-5 rounded-b-md transition-all ease-linear z-50 backdrop-blur"
       >
         <li>
           <RouterLink
