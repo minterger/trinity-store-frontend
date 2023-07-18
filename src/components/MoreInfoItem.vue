@@ -18,7 +18,7 @@ watch(
   <transition>
     <div
       :key="itemStore.itemShow"
-      class="fixed backdrop-blur bg-slate-700 bg-opacity-30 h-screen overflow-y-scroll overflow-x-hidden right-0 top-0 z-50 transition-all ease-linear"
+      class="fixed backdrop-blur bg-slate-700 bg-opacity-30 h-screen overflow-y-auto overflow-x-hidden right-0 top-0 z-50 transition-all ease-linear"
       :class="[
         !itemStore.moreInfoShow
           ? 'w-0 md:w-0 invisible'
