@@ -26,7 +26,7 @@ const itemStore = useItemStore();
             Ver Mas
           </button>
           <button
-            class="bg-emerald-800 hover:bg-emerald-700 transition-colors px-3 py-2 rounded-sm"
+            class="bg-emerald-800 hover:bg-emerald-700 transition-colors px-3 py-2 rounded-sm flex"
           >
             <span class="material-symbols-outlined text-base">
               add_shopping_cart
