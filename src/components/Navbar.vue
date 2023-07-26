@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 import TrinityImg from "../assets/logo.png";
 import { useAuthStore } from "../stores/authStore";
 import { useRoute } from "vue-router";
+import { statusJava } from "node-mcstatus";
 
 const authStore = useAuthStore();
 
@@ -14,13 +15,42 @@ watch([() => route.path, () => route.hash], () => (menuShow.value = false));
 const toggleMenu = () => {
   menuShow.value = !menuShow.value;
 };
+
+const mcData = ref({
+  online: false,
+});
+
+(async () => {
+  try {
+    mcData.value = await statusJava("trinitymc.com.ar");
+    console.log(mcData.value);
+  } catch (e) {
+    console.log(e);
+  }
+})();
 </script>
 
 <template>
   <div class="w-full h-10">
+    <!-- div de jugadores y estado del servidor -->
     <div
-      class="px-2 max-w-screen-lg mx-auto relative w-full h-full flex justify-end"
+      class="px-2 max-w-screen-lg mx-auto relative w-full h-full flex justify-end items-center"
     >
+      <div class="flex items-center mr-4">
+        <div
+          class="inline rounded-full p-1.5"
+          :class="{
+            'bg-green-600': mcData.online,
+            'bg-red-700': !mcData.online,
+          }"
+        ></div>
+
+        <span class="font-bold ml-2 text-slate-300" v-if="mcData.online">
+          Jugadores: {{ mcData.players?.online }} : {{ mcData.players?.max }}
+        </span>
+      </div>
+
+      <!-- boton carrito -->
       <a href="" class="flex items-center"
         ><span class="material-symbols-outlined text-md mr-1 text-slate-400">
           shopping_cart
