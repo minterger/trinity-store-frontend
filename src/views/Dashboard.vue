@@ -1,7 +1,26 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useAuthStore } from "../stores/authStore";
+import { useRoute, useRouter } from "vue-router";
+import Perfil from "../components/DashboardPerfil.vue";
+import DashboardRanks from "../components/DashboardRanks.vue";
 const authStore = useAuthStore();
+
+const route = useRoute();
+const router = useRouter();
+
+const open = (s) => {
+  router.push({ query: { s } });
+};
+
+const view = ref("perfil");
+
+watch(
+  () => route.query.s,
+  (query) => {
+    view.value = query;
+  }
+);
 
 const avatarUrl = computed(() => {
   return (
@@ -38,21 +57,25 @@ const toggleMenuDash = () => {
       <ul class="overflow-hidden">
         <li
           class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
+          @click="open('perfil')"
         >
           Perfil
         </li>
         <li
           class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
+          @click="open('historial')"
         >
           Historial
         </li>
         <li
           class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
+          @click="open('hgeneral')"
         >
-          Historial de Todo
+          Historial General
         </li>
         <li
           class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
+          @click="open('config')"
         >
           Configuración
         </li>
@@ -73,15 +96,14 @@ const toggleMenuDash = () => {
     <aside
       class="w-full rounded-md my-4 min-h-screen bg-slate-700 bg-opacity-30 relative"
     >
-      <!-- contenido -->
-      <h3
-        class="text-center text-xl font-bold py-4 b border-b border-slate-700"
-      >
-        Perfil
-      </h3>
+      <template v-if="view === 'perfil'">
+        <Perfil />
+      </template>
+      <template v-else-if="view === 'ranks'">
+        <DashboardRanks />
+      </template>
     </aside>
   </div>
-  
 </template>
 
 <style scoped>
