@@ -37,13 +37,23 @@ const mcData = ref({
       class="px-2 max-w-screen-lg mx-auto relative w-full h-full flex justify-end items-center"
     >
       <div class="flex items-center mr-4">
-        <div
-          class="inline rounded-full p-1.5"
-          :class="{
-            'bg-green-600': mcData.online,
-            'bg-red-700': !mcData.online,
-          }"
-        ></div>
+        <span class="relative flex h-3 w-3">
+          <span
+            v-show="mcData.online"
+            class="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
+            :class="{
+              'bg-green-500': mcData.online,
+              'bg-red-700': !mcData.online,
+            }"
+          ></span>
+          <span
+            class="relative inline-flex rounded-full h-3 w-3"
+            :class="{
+              'bg-green-600': mcData.online,
+              'bg-red-700': !mcData.online,
+            }"
+          ></span>
+        </span>
 
         <span class="font-bold ml-2 text-slate-300" v-if="mcData.online">
           Jugadores: {{ mcData.players?.online }} : {{ mcData.players?.max }}
