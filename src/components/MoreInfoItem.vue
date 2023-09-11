@@ -18,11 +18,11 @@ watch(
   <transition>
     <div
       :key="itemStore.itemShow"
-      class="fixed backdrop-blur bg-slate-700 bg-opacity-30 h-screen overflow-y-auto overflow-x-hidden right-0 top-0 z-50 transition-all ease-linear"
+      class="fixed backdrop-blur bg-slate-700 bg-opacity-30 h-screen overflow-y-auto overflow-x-hidden top-0 z-50 transition-all ease-in-out duration-500 w-full lg:w-1/4 md:w-2/5 sm:w-1/2"
       :class="[
         !itemStore.moreInfoShow
-          ? 'w-0 md:w-0 invisible'
-          : 'w-full lg:w-1/4 md:w-2/5+- sm:w-1/2 visible',
+          ? ' -right-1/2 opacity-0 invisible'
+          : ' right-0 opacity-100 visible',
       ]"
     >
       <button
@@ -74,11 +74,13 @@ watch(
 /* we will explain what these classes do next! */
 .v-enter-active,
 .v-leave-active {
-  transition: width 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .v-enter-from,
 .v-leave-to {
-  width: 0;
+  right: -50%;
+  opacity: 0;
+  visibility: hidden;
 }
 </style>

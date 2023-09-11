@@ -3,7 +3,7 @@ import { computed, ref, watch } from "vue";
 import { useAuthStore } from "../stores/authStore";
 import { useRoute, useRouter } from "vue-router";
 import Perfil from "../components/DashboardPerfil.vue";
-import DashboardRanks from "../components/DashboardRanks.vue";
+import DashboardAddEditRanks from "../components/DashboardAddEditRanks.vue";
 const authStore = useAuthStore();
 
 const route = useRoute();
@@ -13,8 +13,9 @@ const open = (s) => {
   router.push({ query: { s } });
 };
 
-const view = ref("perfil");
+const view = ref(route.query.s || "perfil");
 
+// verifica el cambio en el dashboard para modificar la vista
 watch(
   () => route.query.s,
   (query) => {
@@ -75,6 +76,12 @@ const toggleMenuDash = () => {
         </li>
         <li
           class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
+          @click="open('add-edit-ranks')"
+        >
+          Editor de rangos
+        </li>
+        <li
+          class="m-2 p-2 bg-slate-600 hover:bg-slate-700 bg-opacity-30 rounded-md cursor-pointer transition-all text-slate-200 whitespace-nowrap overflow-hidden"
           @click="open('config')"
         >
           Configuración
@@ -96,11 +103,11 @@ const toggleMenuDash = () => {
     <aside
       class="w-full rounded-md my-4 min-h-screen bg-slate-700 bg-opacity-30 relative"
     >
-      <template v-if="view === 'perfil'">
+      <template v-if="view === 'perfil' || view === ''">
         <Perfil />
       </template>
-      <template v-else-if="view === 'ranks'">
-        <DashboardRanks />
+      <template v-else-if="view === 'add-edit-ranks'">
+        <DashboardAddEditRanks />
       </template>
     </aside>
   </div>

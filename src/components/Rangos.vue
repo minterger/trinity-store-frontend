@@ -5,11 +5,14 @@ const itemStore = useItemStore();
 </script>
 
 <template>
-  <div id="rangos" class="grid md:grid-cols-3 place-content-center gap-4 pb-20">
+  <div
+    id="rangos"
+    class="grid sm:grid-cols-2 md:grid-cols-3 place-content-center gap-4 pb-20"
+  >
     <div
       v-for="n of itemStore.items"
       :key="n"
-      class="backdrop-blur rounded-md max-w-md bg-slate-700 bg-opacity-30 p-5 flex flex-col items-center gap-4 hover:scale-105 transition-all"
+      class="backdrop-blur rounded-md max-w-full md:max-w-md bg-slate-700 bg-opacity-30 p-5 flex flex-col items-center gap-4 hover:scale-105 transition-all"
     >
       <img :src="n.image" alt="" class="h-28" />
       <h4 class="text-2xl">{{ n.name }}</h4>
